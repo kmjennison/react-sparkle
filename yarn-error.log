@@ -1,0 +1,53 @@
+Arguments: 
+  /Users/kevinjennison/bin/homebrew/Cellar/node/8.9.1/bin/node /Users/kevinjennison/bin/homebrew/Cellar/yarn/1.3.2/libexec/bin/yarn.js init
+
+PATH: 
+  /Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/kevinjennison/.rvm/gems/ruby-2.0.0-p247/bin:/Users/kevinjennison/.rvm/gems/ruby-2.0.0-p247@global/bin:/Users/kevinjennison/.rvm/rubies/ruby-2.0.0-p247/bin:/Users/kevinjennison/.rvm/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin/:/Users/kevinjennison/bin:/Users/kevinjennison/bin/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/opt/X11/bin:/Users/kevinjennison/.rvm/bin:/Users/kevinjennison/bin/homebrew/Cellar/node/7.10.0/bin:/Users/kevinjennison/bin/homebrew/Cellar/node/8.6.0/bin:/Users/kevinjennison/bin/homebrew/sbin:/Users/kevinjennison/android-dev/adt-bundle-macosx/sdk/platform-tools:/Users/kevinjennison/android-dev/adt-bundle-macosx/sdk/tools
+
+Yarn version: 
+  1.3.2
+
+Node version: 
+  8.9.1
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "react-sparkle",
+    "version": "0.0.1",
+    "description": "A React component to increase the number of sparkles in your app",
+    "main": "index.js",
+    "scripts": {
+      "test": "yarn run test"
+    },
+    "keywords": [
+      "react",
+      "sparkle",
+      "sparkles",
+      "glitter",
+      "canvas"
+    ],
+    "author": "Kevin Jennison",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (/Users/kevinjennison/bin/homebrew/Cellar/yarn/1.3.2/libexec/lib/cli.js:121045:13)
+      at emitNone (events.js:106:13)
+      at Interface.emit (events.js:208:7)
+      at Interface._ttyWrite (readline.js:775:16)
+      at ReadStream.onkeypress (readline.js:160:10)
+      at emitTwo (events.js:126:13)
+      at ReadStream.emit (events.js:214:7)
+      at emitKeys (internal/readline.js:420:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1011:36)

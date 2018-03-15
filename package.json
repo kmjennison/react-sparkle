@@ -1,0 +1,32 @@
+{
+  "name": "react-sparkle",
+  "version": "0.0.1",
+  "description": "A React component to increase the number of sparkles in your app",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "yarn run test",
+    "start": "webpack --watch",
+    "build": "NODE_ENV=production webpack"
+  },
+  "keywords": [
+    "react",
+    "sparkle",
+    "sparkles",
+    "glitter",
+    "canvas"
+  ],
+  "author": "Kevin Jennison",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "prop-types": "^15.6.1",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12"
+  },
+  "dependencies": {
+    "react": "^16.2.0"
+  }
+}
