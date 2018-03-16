@@ -4,12 +4,21 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const spriteSrc = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAHCAYAAAD5wDa1AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIE1hY2ludG9zaCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozNDNFMzM5REEyMkUxMUUzOEE3NEI3Q0U1QUIzMTc4NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozNDNFMzM5RUEyMkUxMUUzOEE3NEI3Q0U1QUIzMTc4NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjM0M0UzMzlCQTIyRTExRTM4QTc0QjdDRTVBQjMxNzg2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjM0M0UzMzlDQTIyRTExRTM4QTc0QjdDRTVBQjMxNzg2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+jzOsUQAAANhJREFUeNqsks0KhCAUhW/Sz6pFSc1AD9HL+OBFbdsVOKWLajH9EE7GFBEjOMxcUNHD8dxPBCEE/DKyLGMqraoqcd4j0ChpUmlBEGCFRBzH2dbj5JycJAn90CEpy1J2SK4apVSM4yiKonhePYwxMU2TaJrm8BpykpWmKQ3D8FbX9SOO4/tOhDEG0zRhGAZo2xaiKDLyPGeSyPM8sCxr868+WC/mvu9j13XBtm1ACME8z7AsC/R9r0fGOf+arOu6jUwS7l6tT/B+xo+aDFRo5BykHfav3/gSYAAtIdQ1IT0puAAAAABJRU5ErkJggg=='
-// TODO: use these
-// const spriteCoords = [0, 6, 13, 20]
+const spriteCoords = [0, 6, 13, 20]
 
 // Create sprite
 const sprite = new Image()
 sprite.src = spriteSrc
+
+const flickerSpeedConstants = {
+  slowest: 50,
+  slower: 20,
+  slow: 12,
+  normal: 7,
+  fast: 4,
+  faster: 2,
+  fastest: 0
+}
 
 // Inspired by and drawn from:
 // https://github.com/simeydotme/jQuery-canvas-sparkles
@@ -74,6 +83,12 @@ class Sparkle extends React.Component {
     return Math.random()
   }
 
+  // Returns a value from spriteCoords, determining which slice of
+  // the sprite we display
+  getSpriteVariant () {
+    return spriteCoords[Math.floor(Math.random() * spriteCoords.length)]
+  }
+
   // Assigns fresh values to an existing sparkle
   recreateSparkle (existingSparkle) {
     return Object.assign(existingSparkle, {
@@ -83,7 +98,8 @@ class Sparkle extends React.Component {
       },
       size: this.randomSparkleSize(),
       opacity: this.getOpacity(),
-      color: this.getColor()
+      color: this.getColor(),
+      variant: this.getSpriteVariant()
     })
   }
 
@@ -116,9 +132,8 @@ class Sparkle extends React.Component {
       self.context.globalAlpha = sparkle.opacity
       self.context.drawImage(
         sprite,
-        0,
-        // sparkle.style, // TODO: rotate through sprites
-          0, 7, 7,
+        sparkle.variant, // show different sparkle styles
+        0, 7, 7,
         sparkle.position.x,
         sparkle.position.y,
         sparkle.size, sparkle.size
@@ -137,14 +152,27 @@ class Sparkle extends React.Component {
   }
 
   updateSparkles () {
+    const { flicker, flickerSpeed } = this.props
     const self = this
     this.animationFrame = window.requestAnimationFrame(time => {
+      // Integer of current time. Useful for events that we want to do
+      // less frequently than any animation frame.
+      const currentTimeInt = Math.floor(time)
+
       // Update sparkles by doing some or all of the following:
       //  - change opacity
       //  - change position
       //  - change sprite slice to add "flicker" effect
       this.sparkles.forEach((sparkle) => {
         sparkle.opacity -= 0.005
+
+        // Sometimes change the sparkle variant for a "flicker" effect
+        if (flicker) {
+          const flickerSpeedConstant = flickerSpeedConstants[flickerSpeed]
+          if (currentTimeInt % Math.floor((Math.random() * flickerSpeedConstant) + 1) === 0) {
+            sparkle.variant = self.getSpriteVariant()
+          }
+        }
 
         // Sparkle has faded out, so let's replace it with a
         // new one
@@ -201,9 +229,12 @@ Sparkle.defaultProps = {
   minSize: 5,
   maxSize: 8,
   overflowPx: 20,
-  // flicker: true
-  // speed?
-  // direction? or randomness toward left/right/up/down
+  flicker: true,
+  flickerSpeed: 'normal' // One of: slowest, slower, slow, normal, fast, faster, fastest
+  // TODO
+  // fade out speed constant
+  // movement speed control
+  // direction toggle? or likelyhood of moving left/right/up/down
 }
 
 export default Sparkle
