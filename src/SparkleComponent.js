@@ -152,7 +152,7 @@ class Sparkle extends React.Component {
   }
 
   updateSparkles () {
-    const { flicker, flickerSpeed } = this.props
+    const { flicker, flickerSpeed, fadeOutSpeed } = this.props
     const self = this
     this.animationFrame = window.requestAnimationFrame(time => {
       // Integer of current time. Useful for events that we want to do
@@ -164,7 +164,7 @@ class Sparkle extends React.Component {
       //  - change position
       //  - change sprite slice to add "flicker" effect
       this.sparkles.forEach((sparkle) => {
-        sparkle.opacity -= 0.005
+        sparkle.opacity -= 0.001 * fadeOutSpeed
 
         // Sometimes change the sparkle variant for a "flicker" effect
         if (flicker) {
@@ -229,6 +229,9 @@ Sparkle.defaultProps = {
   minSize: 5,
   maxSize: 8,
   overflowPx: 20,
+  // 0 to 1000, with 0 never fading sparkles out and 1000 immediately
+  // removing sparkles; i.e., how quickly new sparkles are created
+  fadeOutSpeed: 120,
   flicker: true,
   flickerSpeed: 'normal' // One of: slowest, slower, slow, normal, fast, faster, fastest
   // TODO
