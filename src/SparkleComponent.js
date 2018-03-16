@@ -179,7 +179,9 @@ class Sparkle extends React.Component {
         self.sparkleContext.globalCompositeOperation = 'source-atop'
         self.sparkleContext.globalAlpha = 0.6
         self.sparkleContext.fillStyle = sparkle.color
-        self.sparkleContext.fillRect(sparkle.position.x, sparkle.position.y, 7, 7)
+        self.sparkleContext.fillRect(
+          sparkle.position.x, sparkle.position.y,
+          sparkle.size, sparkle.size)
       }
 
       self.sparkleContext.restore()
