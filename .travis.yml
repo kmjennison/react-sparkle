@@ -1,5 +1,13 @@
 language: node_js
 sudo: false
 node_js:
-  - "7"
+- '7'
 cache: yarn
+deploy:
+  provider: npm
+  email: sendstufftokevin@gmail.com
+  api_key:
+    secure: jtJuBlMQtma9+fY15y1/n5WDajW+x3Nt4CW/q4cV2/FWjFjWLtfqliKmhJ+rrl7WdXdsPWoSiezWJlgnUic8YZYG2G8HRR9HXhZjVhxmaXpJOifyE6I78OBpWQolAqHbtC++4nam3BNiqxAfYfTrkdg7zFH1Jb4m+KyongU7A41Piz1dYJ76xqiP5fu4KIqlqp9W2QmEOMq4fX9G7JfbgD4qpz5a1t/Gvt+ftmFExflwnktdJ7akFwvi9d7Hz1NoZxURupWTfUaC0DMpbhj3YldUrF20ueWN5dsJj9jLU0M9WKzBn1ssntBIVaZHI1wfjlqPhgHoeCDWHKem1ZL44kHOIoEs4xtbUS5ibVDSweFgNeMOdzeAKudRGHPV7xUZeZm2lSuIlf4AU+LDgylo35j0paKaN5BmYXMrOI9XvXKxtpeoTMTXwum6r7edSujcDNQKTlBygR3YZ5klqC3D6tYZGGty5wWz/cAtJgp2dmSRoIV2P8W1o1//naBtStyO/DD2gI1vEycdj29GWpKFVwP7rBUWiqxjLWIGKtHR6LWfwq0ltifHKwcHW+QHID/M6TCAPv4BK0xwXnK9+o6zovU4BcLqGZdnPKuJUji2PBSPufYauEsbWht5RW7AsT63QPL7d7xPw3dwjP+7OTVKxJYdiaG+LN/LOdLFvj1WlPY=
+  on:
+    branch: master
+    tags: true
