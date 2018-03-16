@@ -75,8 +75,24 @@ class Sparkle extends React.Component {
     return Math.floor(Math.random() * (maxSize - minSize + 1) + minSize)
   }
 
+  randomHexColor () {
+    // http://www.paulirish.com/2009/random-hex-color-code-snippets/
+    return '#' + ('000000' + Math.floor(Math.random() * 16777215).toString(16)).slice(-6)
+  }
+
   getColor () {
-    return '#FFF' // TODO
+    const { color } = this.props
+    var chosenColor
+    if (color === 'random') {
+      chosenColor = this.randomHexColor()
+    // Check if is an array
+    } else if ((Array.isArray && Array.isArray(color)) || color instanceof Array) {
+      // Choose a random color from the array
+      chosenColor = color[Math.floor(Math.random() * color.length)]
+    } else {
+      chosenColor = color
+    }
+    return chosenColor
   }
 
   getOpacity () {
@@ -241,7 +257,7 @@ Sparkle.propTypes = {
 }
 
 Sparkle.defaultProps = {
-  color: 'random', // 'random, 'rainbow', '#hex', []
+  color: '#FFF',
   count: 50, // number of sparkles
   minSize: 5,
   maxSize: 8,
