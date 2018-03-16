@@ -14,15 +14,18 @@ module.exports = {
         include: path.resolve(__dirname, 'src'),
         exclude: /(node_modules|bower_components|build)/,
         use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['env']
-          }
+          loader: 'babel-loader'
         }
       }
     ]
   },
   externals: {
-    'react': 'commonjs react' // use the parent project's React dependency
+     // Use the parent project's React dependency
+    'react': {
+      'commonjs': 'react',
+      'commonjs2': 'react',
+      'amd': 'react',
+      'root': 'React' // will be window.React
+    }
   }
 }
