@@ -230,7 +230,8 @@ class Sparkle extends React.Component {
           overflow: 'visible',
           position: 'absolute',
           top: `-${overflowPx}px`,
-          left: `-${overflowPx}px`
+          left: `-${overflowPx}px`,
+          pointerEvents: 'none'
         }}
       >
         <canvas
