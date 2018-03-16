@@ -224,7 +224,20 @@ class Sparkle extends React.Component {
 }
 
 Sparkle.propTypes = {
-  // TODO
+  color: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
+  ]),
+  count: PropTypes.number,
+  minSize: PropTypes.number,
+  maxSize: PropTypes.number,
+  overflowPx: PropTypes.number,
+  fadeOutSpeed: PropTypes.number,
+  newSparkleOnFadeOut: PropTypes.bool,
+  flicker: PropTypes.bool,
+  flickerSpeed: PropTypes.oneOf(
+    ['slowest', 'slower', 'slow', 'normal', 'fast', 'faster', 'fastest']
+  )
 }
 
 Sparkle.defaultProps = {
@@ -242,7 +255,6 @@ Sparkle.defaultProps = {
   flicker: true,
   flickerSpeed: 'normal' // One of: slowest, slower, slow, normal, fast, faster, fastest
   // TODO
-  // fade out speed constant
   // movement speed control
   // direction toggle? or likelyhood of moving left/right/up/down
 }
