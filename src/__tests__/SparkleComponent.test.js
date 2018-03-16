@@ -2,11 +2,17 @@
 
 import React from 'react'
 import {
+  mount,
   shallow
 } from 'enzyme'
 
-describe('SparkleComponent', function () {
-  it('logs a warning but does not throw an error if the HTML canvas ref is null', function () {
+describe('SparkleComponent', () => {
+  it('mounts without error', () => {
+    const Sparkle = require('../SparkleComponent').default
+    mount(<Sparkle />)
+  })
+
+  it('logs a warning but does not throw an error if the HTML canvas ref is null', () => {
     const Sparkle = require('../SparkleComponent').default
 
     const mockConsoleWarn = jest.spyOn(console, 'warn')
