@@ -41,6 +41,10 @@ class Sparkle extends React.Component {
   }
 
   init () {
+    if (!this.canvas) {
+      console.warn('No sparkles today :( The canvas did not render.')
+      return
+    }
     this.context = this.canvas.getContext('2d')
     this.sizeCanvas()
     this.start()
