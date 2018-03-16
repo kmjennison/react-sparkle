@@ -32,9 +32,7 @@ class Sparkle extends React.Component {
   }
 
   init () {
-    console.log('canvas', this.canvas)
     this.context = this.canvas.getContext('2d')
-    console.log(this.context)
     this.sizeCanvas()
     this.start()
   }
@@ -42,7 +40,7 @@ class Sparkle extends React.Component {
   start () {
     this.createSparkles()
     this.drawSparkles()
-    // TODO: animate sparkles
+    this.updateSparkles()
   }
 
   end () {
@@ -76,8 +74,9 @@ class Sparkle extends React.Component {
     return Math.random()
   }
 
-  createSparkle () {
-    return {
+  // Assigns fresh values to an existing sparkle
+  recreateSparkle (existingSparkle) {
+    return Object.assign(existingSparkle, {
       position: {
         x: Math.floor(Math.random() * this.canvas.width),
         y: Math.floor(Math.random() * this.canvas.height)
@@ -85,7 +84,11 @@ class Sparkle extends React.Component {
       size: this.randomSparkleSize(),
       opacity: this.getOpacity(),
       color: this.getColor()
-    }
+    })
+  }
+
+  createSparkle () {
+    return this.recreateSparkle({})
   }
 
   createSparkles () {
@@ -110,7 +113,6 @@ class Sparkle extends React.Component {
     // Draw each sparkle
     this.sparkles.forEach((sparkle) => {
       self.context.save()
-
       self.context.globalAlpha = sparkle.opacity
       self.context.drawImage(
         sprite,
@@ -122,7 +124,7 @@ class Sparkle extends React.Component {
         sparkle.size, sparkle.size
       )
 
-      // Tint witht the color
+      // Tint with the color
       if (sparkle.color) {
         self.context.globalCompositeOperation = 'source-atop'
         self.context.globalAlpha = 0.6
@@ -131,6 +133,35 @@ class Sparkle extends React.Component {
       }
 
       self.context.restore()
+    })
+  }
+
+  updateSparkles () {
+    const self = this
+    this.animationFrame = window.requestAnimationFrame(time => {
+      // Update sparkles by doing some or all of the following:
+      //  - change opacity
+      //  - change position
+      //  - change sprite slice to add "flicker" effect
+      this.sparkles.forEach((sparkle) => {
+        sparkle.opacity -= 0.005
+
+        // Sparkle has faded out, so let's replace it with a
+        // new one
+        // TODO: fade in new sparkles
+        if (sparkle.opacity < 0) {
+          this.recreateSparkle(sparkle)
+        }
+
+        // TODO: flicker
+        // TODO: change position
+      })
+
+      // Draw the updated sparkles
+      self.drawSparkles()
+
+      // Continue to update sparkles
+      self.updateSparkles()
     })
   }
 
