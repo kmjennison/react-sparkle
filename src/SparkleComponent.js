@@ -26,8 +26,8 @@ class Sparkle extends React.Component {
   constructor (props) {
     super(props)
     this.sparkleWrapper = null
-    this.canvas = null
-    this.context = null
+    this.sparkleCanvas = null
+    this.sparkleContext = null
     this.sparkles = []
     this.animationFrame = null
   }
@@ -41,11 +41,11 @@ class Sparkle extends React.Component {
   }
 
   init () {
-    if (!this.canvas) {
+    if (!this.sparkleCanvas) {
       console.warn('No sparkles today :( The canvas did not render.')
       return
     }
-    this.context = this.canvas.getContext('2d')
+    this.sparkleContext = this.sparkleCanvas.getContext('2d')
     this.sizeCanvas()
     this.start()
   }
@@ -70,8 +70,8 @@ class Sparkle extends React.Component {
     const parentHeight = parentNode.clientHeight
 
     // Size the canvas
-    this.canvas.width = parentWidth + 2 * overflowPx
-    this.canvas.height = parentHeight + 2 * overflowPx
+    this.sparkleCanvas.width = parentWidth + 2 * overflowPx
+    this.sparkleCanvas.height = parentHeight + 2 * overflowPx
   }
 
   randomSparkleSize () {
@@ -113,8 +113,8 @@ class Sparkle extends React.Component {
   recreateSparkle (existingSparkle) {
     return Object.assign(existingSparkle, {
       position: {
-        x: Math.floor(Math.random() * this.canvas.width),
-        y: Math.floor(Math.random() * this.canvas.height)
+        x: Math.floor(Math.random() * this.sparkleCanvas.width),
+        y: Math.floor(Math.random() * this.sparkleCanvas.height)
       },
       size: this.randomSparkleSize(),
       opacity: this.getOpacity(),
@@ -137,20 +137,20 @@ class Sparkle extends React.Component {
   }
 
   drawSparkles () {
-    if (!this.canvas || !this.context) {
+    if (!this.sparkleCanvas || !this.sparkleContext) {
       return
     }
 
     // Clear canvas
-    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
+    this.sparkleContext.clearRect(0, 0, this.sparkleCanvas.width, this.sparkleCanvas.height)
 
     const self = this
 
     // Draw each sparkle
     this.sparkles.forEach((sparkle) => {
-      self.context.save()
-      self.context.globalAlpha = sparkle.opacity
-      self.context.drawImage(
+      self.sparkleContext.save()
+      self.sparkleContext.globalAlpha = sparkle.opacity
+      self.sparkleContext.drawImage(
         sprite,
         sparkle.variant, // show different sparkle styles
         0, 7, 7,
@@ -161,13 +161,13 @@ class Sparkle extends React.Component {
 
       // Tint with the color
       if (sparkle.color) {
-        self.context.globalCompositeOperation = 'source-atop'
-        self.context.globalAlpha = 0.6
-        self.context.fillStyle = sparkle.color
-        self.context.fillRect(sparkle.position.x, sparkle.position.y, 7, 7)
+        self.sparkleContext.globalCompositeOperation = 'source-atop'
+        self.sparkleContext.globalAlpha = 0.6
+        self.sparkleContext.fillStyle = sparkle.color
+        self.sparkleContext.fillRect(sparkle.position.x, sparkle.position.y, 7, 7)
       }
 
-      self.context.restore()
+      self.sparkleContext.restore()
     })
   }
 
@@ -235,7 +235,7 @@ class Sparkle extends React.Component {
       >
         <canvas
           ref={(canvas) => {
-            this.canvas = canvas
+            this.sparkleCanvas = canvas
           }}
         />
       </span>
