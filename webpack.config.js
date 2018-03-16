@@ -6,7 +6,9 @@ module.exports = {
     filename: 'index.js',
     libraryTarget: 'commonjs2'
   },
-  mode: process.env.NODE_ENV || 'development',
+  // Setting mode to 'development' breaks the build with a
+  // "require not defined" error. Unsure why.
+  mode: 'production',
   module: {
     rules: [
       {
