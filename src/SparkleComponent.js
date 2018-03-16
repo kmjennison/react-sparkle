@@ -212,7 +212,6 @@ class Sparkle extends React.Component {
         }
 
         // Sparkle has faded out
-        // TODO: fade in new sparkles
         if (sparkle.opacity < 0) {
           // Either replace the sparkle with a brand new one or
           // reset the opacity
@@ -222,8 +221,6 @@ class Sparkle extends React.Component {
             sparkle.opacity = self.getOpacity()
           }
         }
-
-        // TODO: change position
       })
 
       // Draw the updated sparkles
@@ -279,22 +276,42 @@ Sparkle.propTypes = {
 }
 
 Sparkle.defaultProps = {
+  // The color of the sparkles. Can be a color, an array of colors,
+  // or 'random' (which will randomly pick from all hex colors).
   color: '#FFF',
-  count: 50, // number of sparkles
+  // The number of sparkles to render. A large number could slow
+  // down the page.
+  count: 50,
+  // The minimum and maximum diameter of sparkles, in pixels.
   minSize: 5,
   maxSize: 8,
+  // The number of pixels the sparkles should extend beyond the
+  // bounds of the parent element.
   overflowPx: 20,
-  // 0 to 1000, with 0 never fading sparkles out and 1000 immediately
-  // removing sparkles; i.e., how quickly new sparkles are created
+  // How quickly sparkles disappear; in other words, how quickly
+  // new sparkles are created. Should be between 0 and 1000,
+  // with 0 never fading sparkles out and 1000 immediately
+  // removing sparkles. Most meaningful speeds are between
+  // 0 and 150.
   fadeOutSpeed: 50,
-  // Whether we should create an entirely new sparkle when one fades out.
-  // If false, we'll just reset the opacity.
+  // Whether we should create an entirely new sparkle when one
+  // fades out. If false, we'll just reset the opacity, keeping
+  // all other attributes of the sparkle the same.
   newSparkleOnFadeOut: true,
+  // Whether sparkles should have a "flickering" effect.
   flicker: true,
-  flickerSpeed: 'normal' // One of: slowest, slower, slow, normal, fast, faster, fastest
-  // TODO
-  // movement speed control
-  // direction toggle? or likelyhood of moving left/right/up/down
+  // How quickly the "flickering" should happen.
+  // One of: slowest, slower, slow, normal, fast, faster, fastest
+  flickerSpeed: 'normal'
 }
 
+// Features that would be good to add:
+// - Option to fade in new sparkles
+// - Sparkle movement
+//    - "Wandering" movement, as in https://github.com/simeydotme/jQuery-canvas-sparkles
+//    - Function-based movement likelihood (e.g. gravity-esque behavior)
+//    - Recreate sparkles when they leave the canvas
+// - Larger-sized sparkles that still look good (the existing
+//   sprites get blurry); possibly use drawn canvas images
+//   instead of sprites
 export default Sparkle
