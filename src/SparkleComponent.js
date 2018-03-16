@@ -152,7 +152,7 @@ class Sparkle extends React.Component {
   }
 
   updateSparkles () {
-    const { flicker, flickerSpeed, fadeOutSpeed } = this.props
+    const { flicker, flickerSpeed, fadeOutSpeed, newSparkleOnFadeOut } = this.props
     const self = this
     this.animationFrame = window.requestAnimationFrame(time => {
       // Integer of current time. Useful for events that we want to do
@@ -174,14 +174,18 @@ class Sparkle extends React.Component {
           }
         }
 
-        // Sparkle has faded out, so let's replace it with a
-        // new one
+        // Sparkle has faded out
         // TODO: fade in new sparkles
         if (sparkle.opacity < 0) {
-          this.recreateSparkle(sparkle)
+          // Either replace the sparkle with a brand new one or
+          // reset the opacity
+          if (newSparkleOnFadeOut) {
+            self.recreateSparkle(sparkle)
+          } else {
+            sparkle.opacity = self.getOpacity()
+          }
         }
 
-        // TODO: flicker
         // TODO: change position
       })
 
@@ -232,6 +236,9 @@ Sparkle.defaultProps = {
   // 0 to 1000, with 0 never fading sparkles out and 1000 immediately
   // removing sparkles; i.e., how quickly new sparkles are created
   fadeOutSpeed: 50,
+  // Whether we should create an entirely new sparkle when one fades out.
+  // If false, we'll just reset the opacity.
+  newSparkleOnFadeOut: true,
   flicker: true,
   flickerSpeed: 'normal' // One of: slowest, slower, slow, normal, fast, faster, fastest
   // TODO
