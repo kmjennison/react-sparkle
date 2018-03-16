@@ -22,7 +22,7 @@ module.exports = {
     ]
   },
   externals: {
-     // Use the parent project's React dependency
+    // Use the parent project's React dependency
     'react': {
       'commonjs': 'react',
       'commonjs2': 'react',
