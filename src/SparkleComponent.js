@@ -231,7 +231,7 @@ Sparkle.defaultProps = {
   overflowPx: 20,
   // 0 to 1000, with 0 never fading sparkles out and 1000 immediately
   // removing sparkles; i.e., how quickly new sparkles are created
-  fadeOutSpeed: 120,
+  fadeOutSpeed: 50,
   flicker: true,
   flickerSpeed: 'normal' // One of: slowest, slower, slow, normal, fast, faster, fastest
   // TODO
