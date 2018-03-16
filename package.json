@@ -38,7 +38,8 @@
     "webpack-cli": "^2.0.12"
   },
   "dependencies": {
-    "react": "^16.2.0"
+    "react": "^16.2.0",
+    "resize-observer-polyfill": "^1.5.0"
   },
   "jest": {
     "collectCoverageFrom": [
