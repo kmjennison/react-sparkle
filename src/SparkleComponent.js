@@ -124,13 +124,14 @@ class Sparkle extends React.Component {
 
   // Assigns fresh values to an existing sparkle
   recreateSparkle (existingSparkle) {
+    const size = this.randomSparkleSize()
     return Object.assign(existingSparkle, {
-      // TODO: don't let sparkles get cut off. Account for their size.
+      // Subtract size so sparkles don't get cut off by the edge of the canvas
       position: {
-        x: Math.floor(Math.random() * this.sparkleCanvas.width),
-        y: Math.floor(Math.random() * this.sparkleCanvas.height)
+        x: Math.floor(Math.random() * (this.sparkleCanvas.width - size)),
+        y: Math.floor(Math.random() * (this.sparkleCanvas.height - size))
       },
-      size: this.randomSparkleSize(),
+      size: size,
       opacity: this.getOpacity(),
       color: this.getColor(),
       variant: this.getSpriteVariant()
