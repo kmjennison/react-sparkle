@@ -198,8 +198,8 @@ Sparkle.propTypes = {
 Sparkle.defaultProps = {
   color: 'random', // 'random, 'rainbow', '#hex', []
   count: 50, // number of sparkles
-  minSize: 6,
-  maxSize: 10,
+  minSize: 5,
+  maxSize: 8,
   overflowPx: 20,
   // flicker: true
   // speed?
