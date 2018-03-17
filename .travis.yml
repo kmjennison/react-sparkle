@@ -3,6 +3,7 @@ sudo: false
 node_js:
 - '7'
 cache: yarn
+before_deploy: yarn run build
 deploy:
   provider: npm
   email: sendstufftokevin@gmail.com
@@ -11,3 +12,4 @@ deploy:
   on:
     branch: master
     tags: true
+  skip_cleanup: true
