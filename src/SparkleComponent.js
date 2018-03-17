@@ -75,7 +75,7 @@ class Sparkle extends React.Component {
     const self = this
     const ro = new ResizeObserver((entries, observer) => {
       for (const entry of entries) {
-        const {left, top, width, height} = entry.contentRect
+        const { width, height } = entry.contentRect
         self.sizeCanvas(width, height)
       }
     })
