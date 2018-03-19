@@ -301,6 +301,7 @@ Sparkle.defaultProps = {
 }
 
 // Features that would be good to add:
+// - "active" prop to turn on and off
 // - Option to fade in new sparkles
 // - Sparkle movement
 //    - "Wandering" movement, as in https://github.com/simeydotme/jQuery-canvas-sparkles
@@ -309,4 +310,6 @@ Sparkle.defaultProps = {
 // - Larger-sized sparkles that still look good (the existing
 //   sprites get blurry); possibly use drawn canvas images
 //   instead of sprites
+// - Declarative updates for the number of sparkles, canvas size,
+//   and fade out speed
 export default Sparkle
