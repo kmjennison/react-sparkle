@@ -72,8 +72,11 @@ Features that would be good to add:
 * An `active` prop to turn the sparkles on and off
 * An option to fade in new sparkles
 * Sparkle movement
-   * "Wandering" movement, as in https://github.com/simeydotme/jQuery-canvas-sparkles
+   * "Wandering" movement, as in [jQuery Canvas Sparkles](https://github.com/simeydotme/jQuery-canvas-sparkles).
    * Function-based movement likelihood (e.g. gravity-esque behavior)
    * We would recreate sparkles when they leave the canvas
 * Larger-sized sparkles that still look good (the existing sprites get blurry); possibly use drawn canvas shapes instead of image sprites
 * Declarative updates for the number of sparkles, canvas size, and fade out speed. Currently, updating these requires re-mounting the component.
+
+## Acknowledgements
+This code was inspired by and based on [jQuery Canvas Sparkles](https://github.com/simeydotme/jQuery-canvas-sparkles).
