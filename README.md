@@ -66,7 +66,7 @@ All props are optional. These are the defaults:
   flicker={true}
   
   // How quickly the "flickering" should happen.
-  // One of={slowest, slower, slow, normal, fast, faster, fastest}
+  // One of: 'slowest', 'slower', 'slow', 'normal', 'fast', 'faster', 'fastest'
   flickerSpeed={'normal'}
 />
 ```
