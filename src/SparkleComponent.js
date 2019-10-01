@@ -126,7 +126,7 @@ class Sparkle extends React.Component {
     if (!this.sparkleCanvas) {
       return
     }
-    
+
     const size = this.randomSparkleSize()
     return Object.assign(existingSparkle, {
       // Subtract size so sparkles don't get cut off by the edge of the canvas
