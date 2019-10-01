@@ -63,6 +63,10 @@ class Sparkle extends React.Component {
   }
 
   sizeCanvas (parentWidth, parentHeight) {
+    if (!this.sparkleCanvas) {
+      return
+    }
+
     const { overflowPx } = this.props
 
     // Size the canvas
@@ -119,6 +123,10 @@ class Sparkle extends React.Component {
 
   // Assigns fresh values to an existing sparkle
   recreateSparkle (existingSparkle) {
+    if (!this.sparkleCanvas) {
+      return
+    }
+
     const size = this.randomSparkleSize()
     return Object.assign(existingSparkle, {
       // Subtract size so sparkles don't get cut off by the edge of the canvas
