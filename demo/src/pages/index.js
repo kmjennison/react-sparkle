@@ -12,12 +12,50 @@ const boxCSS = `
   height: 140px;
 }
 `
+
 const exampleA = `
 import Sparkles from 'react-sparkle'
 
 const demo = () => (
   <div className="box">
     <Sparkles />
+  </div>
+)
+`
+
+const exampleB = `
+import Sparkles from 'react-sparkle'
+
+const demo = () => (
+  <div className="box">
+    <Sparkles
+      color="red"
+      count={20}
+      minSize={7}
+      maxSize={12}
+      overflowPx={80}
+      fadeOutSpeed={30}
+      newSparkleOnFadeOut
+      flicker={false}
+      flickerSpeed="normal"
+    />
+  </div>
+)
+`
+
+const exampleC = `
+import Sparkles from 'react-sparkle'
+
+const demo = () => (
+  <div className="box">
+    <Sparkles
+      color="purple"
+      fadeOutSpeed={10}
+      newSparkleOnFadeOut={false}
+      flicker
+      flickerSpeed="fast"
+      count={80}
+    />
   </div>
 )
 `
@@ -41,6 +79,53 @@ export default function Home() {
           <div className={clsx(indexStyles.darkBackground, indexStyles.demo)}>
             <div className={indexStyles.sparkleTarget}>
               <Sparkles />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={indexStyles.section}>
+        <h2 className={indexStyles.exampleTitle}>Different Color and Sizing</h2>
+        <div className={indexStyles.exampleContainer}>
+          <div className={indexStyles.codeContainer}>
+            <SyntaxHighlighter language="jsx">
+              {exampleB}
+            </SyntaxHighlighter>
+          </div>
+          <div className={clsx(indexStyles.lighterBackground, indexStyles.demo)}>
+            <div className={indexStyles.sparkleTarget}>
+              <Sparkles
+                color="red"
+                count={20}
+                minSize={7}
+                maxSize={12}
+                overflowPx={80}
+                fadeOutSpeed={30}
+                flicker={false}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={indexStyles.section}>
+        <h2 className={indexStyles.exampleTitle}>Permanent Sparkles</h2>
+        <div className={indexStyles.exampleContainer}>
+          <div className={indexStyles.codeContainer}>
+            <SyntaxHighlighter language="jsx">
+              {exampleC}
+            </SyntaxHighlighter>
+          </div>
+          <div className={clsx(indexStyles.lighterBackground, indexStyles.demo)}>
+            <div className={indexStyles.sparkleTarget}>
+              <Sparkles
+                color="purple"
+                fadeOutSpeed={10}
+                newSparkleOnFadeOut={false}
+                flicker
+                flickerSpeed="fast"
+                count={80}
+              />
             </div>
           </div>
         </div>

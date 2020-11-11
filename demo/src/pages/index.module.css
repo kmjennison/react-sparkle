@@ -26,6 +26,9 @@
 .darkBackground {
   background-color: #444444;
 }
+.lighterBackground {
+  background-color: rgb(245, 242, 240); /* same as code box */
+}
 .sparkleTarget {
   position: relative;
   background: #00bdbd;
