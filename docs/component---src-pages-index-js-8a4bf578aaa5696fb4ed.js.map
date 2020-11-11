@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/pages/index.js"],"names":["Home"],"mappings":"2FAAA,wEAEe,SAASA,IACtB,OAAO","file":"component---src-pages-index-js-8a4bf578aaa5696fb4ed.js","sourcesContent":["import React from \"react\"\n\nexport default function Home() {\n  return <div>Hello there!</div>\n}\n"],"sourceRoot":""}
