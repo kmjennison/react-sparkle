@@ -7,7 +7,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "deploy-docs":  "gatsby build --prefix-paths && gh-pages -d public -b master",
+    "deploy-docs":  "gatsby build --prefix-paths && gh-pages -d public -b master --dest ./docs --message \"Update docs\"",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
