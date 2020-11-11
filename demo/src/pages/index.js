@@ -4,10 +4,22 @@ import clsx from 'clsx'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import indexStyles from "./index.module.css"
 
+const boxCSS = `
+.box {
+  position: relative; /* mandatory */
+  background: #00bdbd;
+  width: 140px;
+  height: 140px;
+}
+`
 const exampleA = `
-<div className="box">
-  <Sparkles />
-</div>
+import Sparkles from 'react-sparkle'
+
+const demo = () => (
+  <div className="box">
+    <Sparkles />
+  </div>
+)
 `
 
 export default function Home() {
@@ -17,8 +29,13 @@ export default function Home() {
         <h2 className={indexStyles.exampleTitle}>Default</h2>
         <div className={indexStyles.exampleContainer}>
           <div className={indexStyles.codeContainer}>
-            <SyntaxHighlighter language="jsx">
-              {exampleA}
+            <div className={indexStyles.codeBox}>
+              <SyntaxHighlighter language="jsx">
+                {exampleA}
+              </SyntaxHighlighter>
+            </div>
+            <SyntaxHighlighter language="css">
+              {boxCSS}
             </SyntaxHighlighter>
           </div>
           <div className={clsx(indexStyles.darkBackground, indexStyles.demo)}>

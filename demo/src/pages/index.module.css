@@ -3,7 +3,6 @@
   padding: 24px;  
 }
 .exampleContainer {
-  padding: 24px;
   display: flex;
 
 }
@@ -13,6 +12,9 @@
 .codeContainer {
   flex: 1;
   margin-right: 24px;
+}
+.codeBox {
+  margin-bottom: 24px;
 }
 .demo {
   flex: 1;
