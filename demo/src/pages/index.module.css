@@ -1,4 +1,7 @@
-
+.titleLink {
+  display: block;
+  margin: 0px 24px;
+}
 .section {
   padding: 24px;  
 }

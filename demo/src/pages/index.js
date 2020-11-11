@@ -63,6 +63,7 @@ const demo = () => (
 export default function Home() {
   return (
     <div>
+      <a className={indexStyles.titleLink} href="https://github.com/kmjennison/react-sparkle"><h1>react-sparkle</h1></a>
       <div className={indexStyles.section}>
         <h2 className={indexStyles.exampleTitle}>Default</h2>
         <div className={indexStyles.exampleContainer}>
