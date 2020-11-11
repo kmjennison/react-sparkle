@@ -10,19 +10,13 @@
 .exampleTitle {
   flex: 0 0 100%;
 }
-.code {
+.codeContainer {
   flex: 1;
-  margin: 0px 24px;
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+  margin-right: 24px;
 }
 .demo {
   flex: 1;
-  padding: 48px;
+  padding: 96px 48px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,8 +26,7 @@
 }
 .sparkleTarget {
   position: relative;
-  border: 4px solid #00bdbd;
-  background: teal;
-  width: 200px;
-  height: 200px;
+  background: #00bdbd;
+  width: 140px;
+  height: 140px;
 }
