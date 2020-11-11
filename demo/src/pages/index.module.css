@@ -38,3 +38,6 @@
   width: 140px;
   height: 140px;
 }
+.sparkleTextTarget {
+  position: relative;
+}

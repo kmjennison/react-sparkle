@@ -13,12 +13,18 @@ const boxCSS = `
 }
 `
 
+const textContainerCSS = `
+.container {
+  position: relative; /* mandatory */
+}
+`
+
 const exampleA = `
 import Sparkles from 'react-sparkle'
 
-const demo = () => (
+const Demo = () => (
   <div className="box">
-    <Sparkles />
+    <Sparkles flicker={false} />
   </div>
 )
 `
@@ -26,7 +32,7 @@ const demo = () => (
 const exampleB = `
 import Sparkles from 'react-sparkle'
 
-const demo = () => (
+const Demo = () => (
   <div className="box">
     <Sparkles
       color="red"
@@ -35,9 +41,7 @@ const demo = () => (
       maxSize={12}
       overflowPx={80}
       fadeOutSpeed={30}
-      newSparkleOnFadeOut
       flicker={false}
-      flickerSpeed="normal"
     />
   </div>
 )
@@ -46,7 +50,18 @@ const demo = () => (
 const exampleC = `
 import Sparkles from 'react-sparkle'
 
-const demo = () => (
+const Demo = () => (
+  <span className={"container"}>
+    <h4>I am so sparkly. Look at me go!</h4>
+    <Sparkles color="teal" overflowPx={8} />
+  </span>
+)
+`
+
+const exampleD = `
+import Sparkles from 'react-sparkle'
+
+const Demo = () => (
   <div className="box">
     <Sparkles
       color="purple"
@@ -65,7 +80,7 @@ export default function Home() {
     <div>
       <a className={indexStyles.titleLink} href="https://github.com/kmjennison/react-sparkle"><h1>react-sparkle</h1></a>
       <div className={indexStyles.section}>
-        <h2 className={indexStyles.exampleTitle}>Default</h2>
+        <h2 className={indexStyles.exampleTitle}>Simple</h2>
         <div className={indexStyles.exampleContainer}>
           <div className={indexStyles.codeContainer}>
             <div className={indexStyles.codeBox}>
@@ -79,14 +94,16 @@ export default function Home() {
           </div>
           <div className={clsx(indexStyles.darkBackground, indexStyles.demo)}>
             <div className={indexStyles.sparkleTarget}>
-              <Sparkles />
+              <Sparkles
+                flicker={false}
+              />
             </div>
           </div>
         </div>
       </div>
 
       <div className={indexStyles.section}>
-        <h2 className={indexStyles.exampleTitle}>Different Color and Sizing</h2>
+        <h2 className={indexStyles.exampleTitle}>Different Color, Size, and Speed</h2>
         <div className={indexStyles.exampleContainer}>
           <div className={indexStyles.codeContainer}>
             <SyntaxHighlighter language="jsx">
@@ -110,11 +127,36 @@ export default function Home() {
       </div>
 
       <div className={indexStyles.section}>
+        <h2 className={indexStyles.exampleTitle}>Make Text Sparkle</h2>
+        <div className={indexStyles.exampleContainer}>
+          <div className={indexStyles.codeContainer}>
+            <div className={indexStyles.codeBox}>
+              <SyntaxHighlighter language="jsx">
+                {exampleC}
+              </SyntaxHighlighter>
+            </div>
+            <SyntaxHighlighter language="css">
+              {textContainerCSS}
+            </SyntaxHighlighter>
+          </div>
+          <div className={clsx(indexStyles.lighterBackground, indexStyles.demo)}>
+            <span className={indexStyles.sparkleTextTarget}>
+              <h4>I am so sparkly. Look at me go!</h4>
+              <Sparkles
+                color="teal"
+                overflowPx={8}
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div className={indexStyles.section}>
         <h2 className={indexStyles.exampleTitle}>Permanent Sparkles</h2>
         <div className={indexStyles.exampleContainer}>
           <div className={indexStyles.codeContainer}>
             <SyntaxHighlighter language="jsx">
-              {exampleC}
+              {exampleD}
             </SyntaxHighlighter>
           </div>
           <div className={clsx(indexStyles.lighterBackground, indexStyles.demo)}>
