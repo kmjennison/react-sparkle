@@ -1,10 +1,7 @@
 /* eslint-env jest */
 
 import React from 'react'
-import {
-  mount,
-  shallow
-} from 'enzyme'
+import { mount, shallow } from 'enzyme'
 
 describe('SparkleComponent', () => {
   it('mounts without error', () => {
@@ -15,12 +12,15 @@ describe('SparkleComponent', () => {
   it('logs a warning but does not throw an error if the HTML canvas ref is null', () => {
     const Sparkle = require('../SparkleComponent').default
 
-    const mockConsoleWarn = jest.spyOn(console, 'warn')
+    const mockConsoleWarn = jest
+      .spyOn(console, 'warn')
       .mockImplementationOnce(() => {})
 
     // Shallow rendering means the canvas ref will be null
     shallow(<Sparkle />)
 
-    expect(mockConsoleWarn).toHaveBeenCalledWith('No sparkles today :( The canvas did not render.')
+    expect(mockConsoleWarn).toHaveBeenCalledWith(
+      'No sparkles today :( The canvas did not render.'
+    )
   })
 })

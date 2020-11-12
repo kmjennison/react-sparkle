@@ -5,5 +5,5 @@
  */
 
 module.exports = {
-  pathPrefix: "/react-sparkle",
+  pathPrefix: '/react-sparkle',
 }
