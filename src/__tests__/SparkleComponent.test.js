@@ -1,9 +1,8 @@
-/* eslint-env jest */
-
 import React from 'react'
 import { mount, shallow } from 'enzyme'
 
 describe('SparkleComponent', () => {
+  // eslint-disable-next-line jest/expect-expect
   it('mounts without error', () => {
     const Sparkle = require('../SparkleComponent').default
     mount(<Sparkle />)
