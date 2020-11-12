@@ -1,7 +1,9 @@
-/* globals Image */
+/* globals window Image */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+
+// TODO: probably just remove PropTypes altogether
+import PropTypes from 'prop-types' // eslint-disable-line
 import ResizeObserver from 'resize-observer-polyfill'
 
 const spriteSrc =
@@ -21,6 +23,23 @@ const flickerSpeedConstants = {
 // Inspired by and drawn from:
 // https://github.com/simeydotme/jQuery-canvas-sparkles
 class Sparkle extends React.Component {
+  // Returns a value from spriteCoords, determining which slice of
+  // the sprite we display
+  static getSpriteVariant() {
+    return spriteCoords[Math.floor(Math.random() * spriteCoords.length)]
+  }
+
+  static getOpacity() {
+    return Math.random()
+  }
+
+  static randomHexColor() {
+    // http://www.paulirish.com/2009/random-hex-color-code-snippets/
+    return `#${`000000${Math.floor(Math.random() * 16777215).toString(
+      16
+    )}`.slice(-6)}`
+  }
+
   constructor(props) {
     super(props)
     this.sparkleWrapper = null
@@ -37,69 +56,6 @@ class Sparkle extends React.Component {
 
   componentWillUnmount() {
     this.end()
-  }
-
-  init() {
-    if (!this.sparkleCanvas) {
-      console.warn('No sparkles today :( The canvas did not render.')
-      return
-    }
-
-    // Create sprite
-    const sprite = new Image()
-    sprite.src = spriteSrc
-    this.sprite = sprite
-
-    this.sparkleContext = this.sparkleCanvas.getContext('2d')
-    this.parentResizeObserver()
-    this.start()
-  }
-
-  start() {
-    this.createSparkles()
-    this.drawSparkles()
-    this.updateSparkles()
-  }
-
-  end() {
-    window.cancelAnimationFrame(this.animationFrame)
-    this.sparkles = []
-  }
-
-  sizeCanvas(parentWidth, parentHeight) {
-    if (!this.sparkleCanvas) {
-      return
-    }
-
-    const { overflowPx } = this.props
-
-    // Size the canvas
-    this.sparkleCanvas.width = parentWidth + 2 * overflowPx
-    this.sparkleCanvas.height = parentHeight + 2 * overflowPx
-  }
-
-  // Resize our canvas when the parent resizes
-  parentResizeObserver() {
-    const self = this
-    const ro = new ResizeObserver((entries, observer) => {
-      for (const entry of entries) {
-        const { width, height } = entry.contentRect
-        self.sizeCanvas(width, height)
-      }
-    })
-    ro.observe(this.sparkleWrapper.parentNode)
-  }
-
-  randomSparkleSize() {
-    const { minSize, maxSize } = this.props
-    return Math.floor(Math.random() * (maxSize - minSize + 1) + minSize)
-  }
-
-  randomHexColor() {
-    // http://www.paulirish.com/2009/random-hex-color-code-snippets/
-    return `#${`000000${Math.floor(Math.random() * 16777215).toString(
-      16
-    )}`.slice(-6)}`
   }
 
   getColor() {
@@ -120,20 +76,15 @@ class Sparkle extends React.Component {
     return chosenColor
   }
 
-  getOpacity() {
-    return Math.random()
-  }
-
-  // Returns a value from spriteCoords, determining which slice of
-  // the sprite we display
-  getSpriteVariant() {
-    return spriteCoords[Math.floor(Math.random() * spriteCoords.length)]
+  randomSparkleSize() {
+    const { minSize, maxSize } = this.props
+    return Math.floor(Math.random() * (maxSize - minSize + 1) + minSize)
   }
 
   // Assigns fresh values to an existing sparkle
   recreateSparkle(existingSparkle) {
     if (!this.sparkleCanvas) {
-      return
+      return null
     }
 
     const size = this.randomSparkleSize()
@@ -158,7 +109,7 @@ class Sparkle extends React.Component {
     const { count } = this.props
 
     // Create `this.props.count` number of sparkles
-    for (let i = 0; i < count; i++) {
+    for (let i = 0; i < count; i += 1) {
       this.sparkles.push(this.createSparkle())
     }
   }
@@ -229,6 +180,8 @@ class Sparkle extends React.Component {
       //  - change position
       //  - change sprite slice to add "flicker" effect
       this.sparkles.forEach((sparkle) => {
+        // If we refactor this, don't reassign to the sparkle param.
+        // eslint-disable-next-line no-param-reassign
         sparkle.opacity -= 0.001 * fadeOutSpeed
 
         // Sometimes change the sparkle variant for a "flicker" effect
@@ -239,6 +192,7 @@ class Sparkle extends React.Component {
               Math.floor(Math.random() * flickerSpeedConstant + 1) ===
             0
           ) {
+            // eslint-disable-next-line no-param-reassign
             sparkle.variant = self.getSpriteVariant()
           }
         }
@@ -250,6 +204,7 @@ class Sparkle extends React.Component {
           if (newSparkleOnFadeOut) {
             self.recreateSparkle(sparkle)
           } else {
+            // eslint-disable-next-line no-param-reassign
             sparkle.opacity = self.getOpacity()
           }
         }
@@ -261,6 +216,60 @@ class Sparkle extends React.Component {
       // Continue to update sparkles
       self.updateSparkles()
     })
+  }
+
+  // Resize our canvas when the parent resizes
+  parentResizeObserver() {
+    const self = this
+    const ro = new ResizeObserver((entries) => {
+      // If we refactor this, use an array iteration instead.
+      // eslint-disable-next-line no-restricted-syntax
+      for (const entry of entries) {
+        const { width, height } = entry.contentRect
+        self.sizeCanvas(width, height)
+      }
+    })
+    ro.observe(this.sparkleWrapper.parentNode)
+  }
+
+  sizeCanvas(parentWidth, parentHeight) {
+    if (!this.sparkleCanvas) {
+      return
+    }
+
+    const { overflowPx } = this.props
+
+    // Size the canvas
+    this.sparkleCanvas.width = parentWidth + 2 * overflowPx
+    this.sparkleCanvas.height = parentHeight + 2 * overflowPx
+  }
+
+  start() {
+    this.createSparkles()
+    this.drawSparkles()
+    this.updateSparkles()
+  }
+
+  end() {
+    window.cancelAnimationFrame(this.animationFrame)
+    this.sparkles = []
+  }
+
+  init() {
+    if (!this.sparkleCanvas) {
+      // eslint-disable-next-line no-console
+      console.warn('No sparkles today :( The canvas did not render.')
+      return
+    }
+
+    // Create sprite
+    const sprite = new Image()
+    sprite.src = spriteSrc
+    this.sprite = sprite
+
+    this.sparkleContext = this.sparkleCanvas.getContext('2d')
+    this.parentResizeObserver()
+    this.start()
   }
 
   render() {
