@@ -1,5 +1,10 @@
 /* globals window Image */
 
+// If we refactor this:
+// * use functional components and hooks
+// * extract canvas logic and make it more testable
+// * resolve disabled eslint rules
+
 import React from 'react'
 
 // TODO: probably just remove PropTypes altogether
