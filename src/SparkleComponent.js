@@ -62,7 +62,7 @@ class Sparkle extends React.Component {
     const { color } = this.props
     let chosenColor
     if (color === 'random') {
-      chosenColor = this.randomHexColor()
+      chosenColor = Sparkle.randomHexColor()
       // Check if is an array
     } else if (
       (Array.isArray && Array.isArray(color)) ||
@@ -95,9 +95,9 @@ class Sparkle extends React.Component {
         y: Math.floor(Math.random() * (this.sparkleCanvas.height - size)),
       },
       size,
-      opacity: this.getOpacity(),
+      opacity: Sparkle.getOpacity(),
       color: this.getColor(),
-      variant: this.getSpriteVariant(),
+      variant: Sparkle.getSpriteVariant(),
     })
   }
 
