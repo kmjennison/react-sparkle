@@ -6,7 +6,7 @@
   "bugs": "https://github.com/kmjennison/react-sparkle/issues",
   "main": "dist/index.js",
   "scripts": {
-    "test": "jest --env=jsdom",
+    "test": "yarn run lint && jest --env=jsdom",
     "start": "webpack --watch",
     "build": "NODE_ENV=production webpack",
     "lint": "eslint \"**/*.{js,jsx}\""
