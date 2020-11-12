@@ -1,0 +1,43 @@
+.titleLink {
+  display: block;
+  margin: 0px 24px;
+}
+.section {
+  padding: 24px;  
+}
+.exampleContainer {
+  display: flex;
+
+}
+.exampleTitle {
+  flex: 0 0 100%;
+}
+.codeContainer {
+  flex: 1;
+  margin-right: 24px;
+}
+.codeBox {
+  margin-bottom: 24px;
+}
+.demo {
+  flex: 1;
+  padding: 96px 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.darkBackground {
+  background-color: #444444;
+}
+.lighterBackground {
+  background-color: rgb(245, 242, 240); /* same as code box */
+}
+.sparkleTarget {
+  position: relative;
+  background: #00bdbd;
+  width: 140px;
+  height: 140px;
+}
+.sparkleTextTarget {
+  position: relative;
+}
