@@ -4,6 +4,8 @@
 // * use functional components and hooks
 // * extract canvas logic and make it more testable
 // * resolve disabled eslint rules
+// * breaking: possibly make Sparkle the parent component so we can
+//   remove resize-observer and CSS position requirements
 
 import React from 'react'
 import { ResizeObserver } from '@juggle/resize-observer'
