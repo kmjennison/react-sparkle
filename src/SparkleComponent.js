@@ -6,9 +6,6 @@
 // * resolve disabled eslint rules
 
 import React from 'react'
-
-// TODO: probably just remove PropTypes altogether
-import PropTypes from 'prop-types' // eslint-disable-line
 import ResizeObserver from 'resize-observer-polyfill'
 
 const spriteSrc =
@@ -302,29 +299,6 @@ class Sparkle extends React.Component {
       </span>
     )
   }
-}
-
-Sparkle.propTypes = {
-  color: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string),
-  ]),
-  count: PropTypes.number,
-  minSize: PropTypes.number,
-  maxSize: PropTypes.number,
-  overflowPx: PropTypes.number,
-  fadeOutSpeed: PropTypes.number,
-  newSparkleOnFadeOut: PropTypes.bool,
-  flicker: PropTypes.bool,
-  flickerSpeed: PropTypes.oneOf([
-    'slowest',
-    'slower',
-    'slow',
-    'normal',
-    'fast',
-    'faster',
-    'fastest',
-  ]),
 }
 
 Sparkle.defaultProps = {
