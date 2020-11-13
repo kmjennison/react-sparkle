@@ -34,6 +34,15 @@ module.exports = {
       },
     },
   ],
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx'],
+        // Resolve packages in demo app.
+        moduleDirectory: ['node_modules', 'demo/node_modules'],
+      },
+    },
+  },
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
