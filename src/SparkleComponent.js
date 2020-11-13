@@ -195,7 +195,7 @@ class Sparkle extends React.Component {
             0
           ) {
             // eslint-disable-next-line no-param-reassign
-            sparkle.variant = self.getSpriteVariant()
+            sparkle.variant = Sparkle.getSpriteVariant()
           }
         }
 
@@ -207,7 +207,7 @@ class Sparkle extends React.Component {
             self.recreateSparkle(sparkle)
           } else {
             // eslint-disable-next-line no-param-reassign
-            sparkle.opacity = self.getOpacity()
+            sparkle.opacity = Sparkle.getOpacity()
           }
         }
       })
