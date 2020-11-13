@@ -3,7 +3,6 @@ module.exports = {
   plugins: ['prettier', 'react-hooks'],
   rules: {
     'prettier/prettier': 'error',
-    'jsx-a11y/anchor-is-valid': 0, // https://github.com/zeit/next.js/issues/5533
     'react/no-unescaped-entities': 0,
     'react/jsx-filename-extension': 0,
     'react/jsx-one-expression-per-line': 0,
