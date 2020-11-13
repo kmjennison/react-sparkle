@@ -5,6 +5,11 @@
 # react-sparkle
 Make your React app more :sparkles:sparkly:sparkles:
 
+## Demo
+
+* [Examples](https://kmjennison.github.io/react-sparkle/)
+* [Demo source code](./demo/)
+
 ## How to Use
 
 Install: `yarn add react-sparkle` or `npm install react-sparkle`
