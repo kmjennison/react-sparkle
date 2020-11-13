@@ -1,7 +1,9 @@
+.git
 .github
 .cache
 package.json
 package-lock.json
+dist
 docs
 demo/public/*
 demo/node_modules/*
