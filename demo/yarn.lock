@@ -1198,6 +1198,11 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
+"@juggle/resize-observer@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.2.0.tgz#5e0b448d27fe3091bae6216456512c5904d05661"
+  integrity sha512-fsLxt0CHx2HCV9EL8lDoVkwHffsA0snUpddYjdLyXcG5E41xaamn9ZyQqOE9TUJdrRlH8/hjIf+UdOdDeKCUgg==
+
 "@mdx-js/util@^2.0.0-next.8":
   version "2.0.0-next.8"
   resolved "https://registry.yarnpkg.com/@mdx-js/util/-/util-2.0.0-next.8.tgz#66ecc27b78e07a3ea2eb1a8fc5a99dfa0ba96690"
@@ -9275,12 +9280,12 @@ react-refresh@^0.8.3:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
 
-react-sparkle@^1.0.7-alpha.7:
-  version "1.0.7-alpha.7"
-  resolved "https://registry.yarnpkg.com/react-sparkle/-/react-sparkle-1.0.7-alpha.7.tgz#2c7e5eba3d21f3225884fccbdd98d488aab2aa75"
-  integrity sha512-dWCCYXmF4DPIPyPgbHvDXTUw7/BmYE9rPr6QbO5igaKWRwutZRXrw+YxceDK/VqKx4bvHPMrfXRTs0DmZV6DSQ==
+react-sparkle@^1.0.7-alpha.8:
+  version "1.0.7-alpha.8"
+  resolved "https://registry.yarnpkg.com/react-sparkle/-/react-sparkle-1.0.7-alpha.8.tgz#5fed5d0c7cb676dd15233a4da4619f82de285314"
+  integrity sha512-t3p0QFnM6B3agql7E+fo8E0rZFHhVVJX+cJo/53Yr7CikIMF2/a1nWcyibU/y42yZdnCOSqCHZeXlJfVlj/Epw==
   dependencies:
-    resize-observer-polyfill "^1.5.1"
+    "@juggle/resize-observer" "^3.2.0"
 
 react-syntax-highlighter@^15.3.0:
   version "15.3.0"
@@ -9609,11 +9614,6 @@ requires-port@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
-
-resize-observer-polyfill@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
-  integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
 
 resolve-cwd@^2.0.0:
   version "2.0.0"
