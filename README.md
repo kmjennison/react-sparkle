@@ -14,22 +14,18 @@ Make your React app more :sparkles:sparkly:sparkles:
 
 Install: `yarn add react-sparkle` or `npm install react-sparkle`
 
-Add `Sparkle` as a child of the element you want to add sparkles to. _Important:_ the parent element must have either `relative` or `absolute` positioning.
+Add `Sparkle` as a child of the element you want to add sparkles to. **Important:** the parent element must have either `relative` or `absolute` positioning.
 
 ```js
 import React from 'react'
 import Sparkle from 'react-sparkle'
 
-class SparklyThing extends React.Component {
+const SparklyThing = () => (
   // Note: the parent of Sparkle must be positioned relatively or absolutely
-  render () {
-    return (
-      <div style={{ position: 'relative' }}>
-        <Sparkle />
-      </div>
-    )
-  }
-}
+  <div style={{ position: 'relative' }}>
+    <Sparkle />
+  </div>
+)
 ```
 
 ## Options
@@ -75,16 +71,9 @@ All props are optional. These are the defaults:
 />
 ```
 
-## Possible Future Features
-Features that would be good to add:
-* An `active` prop to turn the sparkles on and off
-* An option to fade in new sparkles
-* Sparkle movement
-   * "Wandering" movement, as in [jQuery Canvas Sparkles](https://github.com/simeydotme/jQuery-canvas-sparkles).
-   * Function-based movement likelihood (e.g. gravity-esque behavior)
-   * We would recreate sparkles when they leave the canvas
-* Larger-sized sparkles that still look good (the existing sprites get blurry); possibly use drawn canvas shapes instead of image sprites
-* Declarative updates for the number of sparkles, canvas size, and fade out speed. Currently, updating these requires re-mounting the component.
+## Limitations
+* The props only take effect on mount. If you need modified props to take effect, you need to unmount and remount `Sparkle`.
+* The sparkle image sprites aren't currently customizable. In the future, we might want to accept custom images or use drawn canvas shapes to eliminate the images altogether.
 
 ## Acknowledgements
 This code was inspired by and based on [jQuery Canvas Sparkles](https://github.com/simeydotme/jQuery-canvas-sparkles).
