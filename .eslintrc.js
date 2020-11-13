@@ -39,7 +39,7 @@ module.exports = {
       node: {
         extensions: ['.js', '.jsx'],
         // Resolve packages in demo app.
-        moduleDirectory: ['node_modules', 'demo/node_modules'],
+        moduleDirectory: ['node_modules', './demo/node_modules/'],
       },
     },
   },
