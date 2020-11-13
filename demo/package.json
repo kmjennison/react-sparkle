@@ -19,7 +19,7 @@
     "gatsby": "^2.25.3",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-sparkle": "^1.0.7-alpha.8",
+    "react-sparkle": "^1.0.7",
     "react-syntax-highlighter": "^15.3.0"
   },
   "devDependencies": {

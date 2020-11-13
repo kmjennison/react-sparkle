@@ -9280,10 +9280,10 @@ react-refresh@^0.8.3:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
 
-react-sparkle@^1.0.7-alpha.8:
-  version "1.0.7-alpha.8"
-  resolved "https://registry.yarnpkg.com/react-sparkle/-/react-sparkle-1.0.7-alpha.8.tgz#5fed5d0c7cb676dd15233a4da4619f82de285314"
-  integrity sha512-t3p0QFnM6B3agql7E+fo8E0rZFHhVVJX+cJo/53Yr7CikIMF2/a1nWcyibU/y42yZdnCOSqCHZeXlJfVlj/Epw==
+react-sparkle@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/react-sparkle/-/react-sparkle-1.0.7.tgz#e83578fb124b85e0145911340e24b70f7f21ada1"
+  integrity sha512-sJMmbeAjWqbe9KRgHpS0gSGbLWlS/WDO4Hjnq70YhAHqVheLmGYvfMoq7m4ql8BeNvhYhOdYByol4LQ0auuuwQ==
   dependencies:
     "@juggle/resize-observer" "^3.2.0"
 
