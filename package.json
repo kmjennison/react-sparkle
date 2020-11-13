@@ -1,6 +1,6 @@
 {
   "name": "react-sparkle",
-  "version": "1.0.7-alpha.7",
+  "version": "1.0.7-alpha.8",
   "description": "A React component to increase the number of sparkles in your app",
   "homepage": "https://github.com/kmjennison/react-sparkle",
   "bugs": "https://github.com/kmjennison/react-sparkle/issues",
@@ -49,7 +49,7 @@
     "webpack-cli": "^4.2.0"
   },
   "dependencies": {
-    "resize-observer-polyfill": "^1.5.1"
+    "@juggle/resize-observer": "^3.2.0"
   },
   "jest": {
     "collectCoverageFrom": [
