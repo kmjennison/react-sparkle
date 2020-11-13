@@ -1,10 +1,11 @@
-var path = require('path')
+const path = require('path')
+
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
-    libraryTarget: 'commonjs2'
+    libraryTarget: 'commonjs2',
   },
   // Setting mode to 'development' breaks the build with a
   // "require not defined" error. Unsure why.
@@ -16,10 +17,10 @@ module.exports = {
         include: path.resolve(__dirname),
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: 'babel-loader'
-        }
-      }
-    ]
+          loader: 'babel-loader',
+        },
+      },
+    ],
   },
   externals: {
     // Use the parent project's React dependency
@@ -27,7 +28,7 @@ module.exports = {
       commonjs: 'react',
       commonjs2: 'react',
       amd: 'react',
-      root: 'React' // will be window.React
-    }
-  }
+      root: 'React', // will be window.React
+    },
+  },
 }

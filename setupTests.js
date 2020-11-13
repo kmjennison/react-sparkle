@@ -1,7 +1,4 @@
-/* eslint-env jest */
-
-// Used in package.json Jest configuration
-// and run before tests
+/* eslint import/no-extraneous-dependencies: 0 */
 
 import { configure } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'

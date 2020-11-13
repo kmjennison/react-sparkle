@@ -6,10 +6,10 @@
   "bugs": "https://github.com/kmjennison/react-sparkle/issues",
   "main": "dist/index.js",
   "scripts": {
-    "test": "jest --env=jsdom",
+    "test": "yarn run lint && jest --env=jsdom",
     "start": "webpack --watch",
     "build": "NODE_ENV=production webpack",
-    "lint": "standard"
+    "lint": "eslint \"**/*.{js,jsx}\""
   },
   "keywords": [
     "react",
@@ -30,12 +30,22 @@
     "babel-polyfill": "^6.26.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "jest": "^24.9.0",
     "jest-canvas-mock": "^2.1.1",
+    "prettier": "2.1.2",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "standard": "^14.3.1",
     "webpack": "^4.41.0",
     "webpack-cli": "^3.3.9"
   },
