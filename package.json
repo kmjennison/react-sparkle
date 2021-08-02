@@ -5,6 +5,7 @@
   "homepage": "https://github.com/kmjennison/react-sparkle",
   "bugs": "https://github.com/kmjennison/react-sparkle/issues",
   "main": "dist/index.js",
+  "types": "react-sparkle.d.ts",
   "scripts": {
     "test": "yarn run lint && jest --env=jsdom",
     "start": "webpack --watch",
