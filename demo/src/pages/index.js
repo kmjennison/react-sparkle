@@ -2,7 +2,7 @@ import React from 'react'
 import Sparkles from 'react-sparkle'
 import clsx from 'clsx'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import indexStyles from './index.module.css'
+import * as indexStyles from './index.module.css'
 
 const boxCSS = `
 .box {
