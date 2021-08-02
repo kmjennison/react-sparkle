@@ -4,6 +4,10 @@ import clsx from 'clsx'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import * as indexStyles from './index.module.css'
 
+const reactSparkleDependencyVersion =
+  require('../../package.json').dependencies['react-sparkle']
+const reactDependencyVersion = require('../../package.json').dependencies.react
+
 const boxCSS = `
 .box {
   position: relative; /* mandatory */
@@ -84,6 +88,10 @@ export default function Home() {
       >
         <h1>react-sparkle</h1>
       </a>
+      <div style={{ paddingLeft: 24, paddingRight: 24 }}>
+        <p style={{ margin: 0 }}>Version: {reactSparkleDependencyVersion}</p>
+        <p style={{ margin: 0 }}>React version: {reactDependencyVersion}</p>
+      </div>
       <div className={indexStyles.section}>
         <h2 className={indexStyles.exampleTitle}>Simple</h2>
         <div className={indexStyles.exampleContainer}>
