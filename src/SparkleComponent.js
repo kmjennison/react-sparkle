@@ -167,12 +167,8 @@ class Sparkle extends React.Component {
   }
 
   updateSparkles() {
-    const {
-      flicker,
-      flickerSpeed,
-      fadeOutSpeed,
-      newSparkleOnFadeOut,
-    } = this.props
+    const { flicker, flickerSpeed, fadeOutSpeed, newSparkleOnFadeOut } =
+      this.props
     const self = this
     this.animationFrame = window.requestAnimationFrame((time) => {
       // Integer of current time. Useful for events that we want to do
