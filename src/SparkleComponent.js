@@ -232,6 +232,8 @@ class Sparkle extends React.Component {
     ro.observe(this.sparkleWrapper.parentNode)
   }
 
+  // Used in ResizeObserver
+  // eslint-disable-next-line react/no-unused-class-component-methods
   sizeCanvas(parentWidth, parentHeight) {
     if (!this.sparkleCanvas) {
       return
