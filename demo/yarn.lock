@@ -7867,10 +7867,10 @@ react-server-dom-webpack@0.0.0-experimental-c8b778b7f-20220825:
     loose-envify "^1.1.0"
     neo-async "^2.6.1"
 
-react-sparkle@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/react-sparkle/-/react-sparkle-1.1.0.tgz#f1b40123b18a024220b39308b1e2ce41badf4f06"
-  integrity sha512-/+wSl7g05pUt76iYxcIRe5TFVXKzAF4ECY2MLXxGbx0AXYxDWmVmLeZnfTECp9Qbz+4u3INkpuRxmTkfpjIK7g==
+react-sparkle@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-sparkle/-/react-sparkle-1.1.1.tgz#5cb807cb1789492eb32964b114f54d06cf8413c1"
+  integrity sha512-mHukn07yE31LSR6DlTbrjn8yC82hUB0NUTBG914BkZ5IR5Jdk2dfi4Z7Gq/vAAB31I4vRcqiUY+pF4crM4umAw==
   dependencies:
     "@juggle/resize-observer" "^3.4.0"
 
