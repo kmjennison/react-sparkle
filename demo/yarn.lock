@@ -1330,7 +1330,7 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@juggle/resize-observer@^3.3.1":
+"@juggle/resize-observer@^3.4.0":
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.4.0.tgz#08d6c5e20cf7e4cc02fd181c4b0c225cd31dbb60"
   integrity sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==
@@ -7867,12 +7867,12 @@ react-server-dom-webpack@0.0.0-experimental-c8b778b7f-20220825:
     loose-envify "^1.1.0"
     neo-async "^2.6.1"
 
-react-sparkle@1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/react-sparkle/-/react-sparkle-1.0.9.tgz#3e034da5ade47cd6b7081235221d088d92444bdd"
-  integrity sha512-MDRn+yaSf9PatEXJlNSqR9UHSj7jNa1bjJA5v9LQCIxP/k/fLWWwnRNv9QnNeKcELsYyeQgkTf4LTLaCccyzqQ==
+react-sparkle@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-sparkle/-/react-sparkle-1.1.0.tgz#f1b40123b18a024220b39308b1e2ce41badf4f06"
+  integrity sha512-/+wSl7g05pUt76iYxcIRe5TFVXKzAF4ECY2MLXxGbx0AXYxDWmVmLeZnfTECp9Qbz+4u3INkpuRxmTkfpjIK7g==
   dependencies:
-    "@juggle/resize-observer" "^3.3.1"
+    "@juggle/resize-observer" "^3.4.0"
 
 react-syntax-highlighter@^15.5.0:
   version "15.5.0"
