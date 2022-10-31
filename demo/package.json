@@ -15,15 +15,16 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "clsx": "^1.1.1",
-    "gatsby": "^3.10.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "clsx": "^1.2.1",
+    "gatsby": "^4.24.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-sparkle": "1.0.9",
-    "react-syntax-highlighter": "^15.4.4"
+    "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
-    "gh-pages": "^3.2.3"
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "gh-pages": "^4.0.0"
   },
   "repository": {
     "type": "git",
