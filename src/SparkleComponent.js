@@ -220,16 +220,23 @@ class Sparkle extends React.Component {
 
   // Resize our canvas when the parent resizes
   parentResizeObserver() {
+    const parentStyle = window.getComputedStyle(this.sparkleWrapper.parentNode)
+    const boxSizing = parentStyle['box-sizing']
+    const isHorizontalWritingMode =
+      parentStyle['writing-mode'] === 'horizontal-tb'
     const self = this
     const ro = new ResizeObserver((entries) => {
       // If we refactor this, use an array iteration instead.
       // eslint-disable-next-line no-restricted-syntax
       for (const entry of entries) {
-        const { width, height } = entry.contentRect
+        const { blockSize, inlineSize } = entry.borderBoxSize[0]
+        const [width, height] = isHorizontalWritingMode
+          ? [inlineSize, blockSize]
+          : [blockSize, inlineSize]
         self.sizeCanvas(width, height)
       }
     })
-    ro.observe(this.sparkleWrapper.parentNode)
+    ro.observe(this.sparkleWrapper.parentNode, { box: boxSizing })
   }
 
   // Used in ResizeObserver
