@@ -55,7 +55,7 @@ const exampleC = `
 import Sparkles from 'react-sparkle'
 
 const Demo = () => (
-  <span className={"container"}>
+  <span className="container">
     <h4>I am so sparkly. Look at me go!</h4>
     <Sparkles color="teal" overflowPx={8} />
   </span>
@@ -75,6 +75,23 @@ const Demo = () => (
       flickerSpeed="fast"
       count={80}
     />
+  </div>
+)
+`
+
+const exampleE = `
+import Sparkles from 'react-sparkle'
+
+const Demo = () => (
+  <div
+    className="box"
+    style={{
+      boxSizing: 'border-box',
+      padding: 40,
+      border: '8px solid red'
+    }}
+  >
+    <Sparkles />
   </div>
 )
 `
@@ -175,6 +192,27 @@ export default function Home() {
                 flickerSpeed="fast"
                 count={80}
               />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={indexStyles.section}>
+        <h2 className={indexStyles.exampleTitle}>Box-sizing demo</h2>
+        <div className={indexStyles.exampleContainer}>
+          <div className={indexStyles.codeContainer}>
+            <SyntaxHighlighter language="jsx">{exampleE}</SyntaxHighlighter>
+          </div>
+          <div className={clsx(indexStyles.darkBackground, indexStyles.demo)}>
+            <div
+              className={indexStyles.sparkleTarget}
+              style={{
+                boxSizing: 'border-box',
+                padding: 40,
+                border: '8px solid red',
+              }}
+            >
+              <Sparkles />
             </div>
           </div>
         </div>
